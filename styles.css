@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap");
+
+:root {
+  --color-primary: #184269;
+  --color-secondary: #f4f4f4;
+}
+
+body {
+  background: var(--color-secondary, white);
+
+  font-family: "Noto Sans", sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: center;
+
+  margin: 2rem auto;
+
+  width: 100%;
+  max-width: 1500px;
+}
+
+.title,
+.subtitle {
+  margin: 0 auto;
+  width: 100%;
+  color: var(--color-primary, black);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.spacer {
+  display: block;
+
+  margin: 2rem auto;
+
+  width: 100%;
+  height: 2px;
+
+  background-color: var(--color-primary, black);
+  border: 0;
+}
+
+iframe {
+  width: 100%;
+  border: 0;
+}
+
+/* your styles here */
+.workspace {
+  width: 100%;
+  min-width: 480px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+.card {
+  min-width: 480px;
+  width: 480px;
+  height: 300px;
+  min-height: 300px;
+  overflow: hidden;
+  text-align: left;
+  background-color: white;
+}
+
+.card_title {
+  color: #184269;
+  margin: 10px;
+}
+.card_img_info {
+  position: relative;
+  bottom: 300px;
+  left: 300px;
+  width: 100px;
+  height: 25px;
+  padding: 5px;
+  background-color: #f4f4f4;
+  color: #184269;
+  text-align: center;
+  border-radius: 5px;
+}
+.card_context {
+  color: #184269;
+  margin: 10px;
+}
+.card_button {
+  border-style: none;
+  border-radius: 4px;
+  width: 150px;
+  height: 24px;
+  margin: 10px;
+  padding: 0px;
+  background-color: #184269;
+  color: #f4f4f4;
+}
+button:hover {
+  color: red;
+}
+.card_button_contents {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card_img {
+  width: 500px;
+}
+.chevron_img {
+  fill: white;
+}
+
+/*code for differences between desktop and mobile */
+/* if the max width of the browser drops under 950 and is landscape restrict width, thus cutting out the second card */
+@media (max-width: 950px) and (orientation: landscape) {
+  .workspace {
+    width: 480px;
+  }
+}
+/* if the browser is portrait and has a height greater than
+801px change flex direction and adjust date positioning */
+@media (min-height: 801px) and (orientation: portrait) {
+  .workspace {
+    flex-direction: column;
+  }
+  .card_img_info {
+    left: 30px;
+    bottom: 120px;
+  }
+}
+
+/* if the browser is portrait and has a height less than
+800px change flex direction, restrict height to remove second card and adjust date positioning */
+
+@media (max-height: 800px) and (orientation: portrait) {
+  .workspace {
+    flex-direction: column;
+    height: 300px;
+  }
+  .card_img_info {
+    left: 30px;
+    bottom: 120px;
+  }
+}
